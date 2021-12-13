@@ -1,0 +1,77 @@
+' GNSS Navigation Data Provider service architecture
+
+@startuml
+
+hide stereotype
+skinparam defaultFontSize 20
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam defaultFontName Carlito Bold
+
+skinparam rectangle {
+  BorderColor white
+  BackgroundColor #466bb4
+  FontColor white
+  roundCorner 25
+}
+
+skinparam rectangle {
+  BorderColor<<nested>> white
+  BackgroundColor<<nested>> #0075bc
+  FontColor<<nested>> white
+  roundCorner<<nested>> 25
+}
+
+skinparam component {
+  BorderColor white
+  BackgroundColor white
+  FontColor #466bb4
+  roundCorner 15
+}
+
+skinparam interface {
+  borderColor #c12e4d
+  backgroundColor #c12e4d
+}
+
+rectangle "Cloud service 1" {
+    component [FTP server] as cs1.ftp
+}
+
+rectangle "Cloud service 2" {
+    component [FTP server] as cs2.ftp
+}
+
+rectangle "My microservice" {
+
+    rectangle "Docker container" as dc1 <<nested>> {
+      component [Cache] as my.cache
+    }
+
+    rectangle "Docker container" as dc2 <<nested>> {
+      component [API] as my.api
+    }
+
+    Interface "TCP" as apicache
+    my.cache -- apicache
+    apicache -- my.api
+    
+}
+
+rectangle "Client device" {
+    component [HTTP Client] as cli.app
+}
+
+Interface "FTP" as cs1api
+cs1.ftp -- cs1api
+cs1api -- my.api
+
+Interface "FTP" as cs2api
+cs2.ftp -- cs2api
+cs2api -- my.api
+
+Interface "HTTP/Rest" as apicli
+my.api -- apicli
+apicli -- cli.app
+
+@enduml

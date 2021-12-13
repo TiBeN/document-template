@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Launch Make to generate PDF document
+
+script_path=$(readlink -f `dirname $0`)
+
+docker run --rm \
+  -v "$PWD":/src \
+  -w /src \
+  tiben-document-template:1.0 make "$@"
