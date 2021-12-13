@@ -16,10 +16,16 @@ Usage
 
 Copy content of `template` directory somewhere and edit the file `metadata.yml`.
 
-Generating the document involves calling Makefile through Docker container. A bash
-launcher is available in `bin/` directory:
+Generating the document involves calling make at the template root directory
+through Docker container of the provided image. 
 
-In the root directory:
+    $ cd /path/to/your/template/
+    $ docker run --rm \
+       -v "$PWD":/src \
+       -w /src \
+       tiben-document-template:1.0 make clean all
+
+A Bash wrapper is available in `bin/` directory:
 
     $ cd /path/to/your/template/
     $ /path/to/this/repo/bin/docker-mkdoc [<make targets>]
@@ -30,11 +36,9 @@ To force rebuild entire document, use `clean all`:
 
     $ docker-mkdoc clean all
 
-To create a tar.gz distribution file, use `dist`:
+To create a tarball containing your built document, figures and sources files., use `dist`:
 
     $ docker-mkdoc dist
-
-This create a tarball containing your built document, figures and sources files.
 
 Template
 --------
