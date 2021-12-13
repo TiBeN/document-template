@@ -1,7 +1,7 @@
 My Pandoc/LateX document template 
 =================================
 
-Template i use to generate my technical documents.
+Template i use to generate my technical documents in Markdown using Pandoc.
 
 It provides a template dir and a Docker image containing everything is needed
 to generate the document in PDF and docx (Pandoc, Latex distribution etc.)
