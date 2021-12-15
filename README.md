@@ -3,8 +3,9 @@ My Pandoc/LateX document template
 
 Template i use to generate my technical documents in Markdown using Pandoc.
 
-It provides a template dir and a Docker image containing everything is needed
-to generate the document in PDF and docx (Pandoc, Latex distribution etc.)
+This repository provides a template dir and a Docker image containing
+everything is needed to generate the document in PDF and docx (Pandoc, Latex
+distribution etc.)
 
 Docker image build
 ------------------
@@ -61,3 +62,18 @@ PlantUML diagram generation
 
 Place your puml file in `template/src/puml` then link your files from `png/` in
 your document (see example in default template).
+
+Source theme file using the following PlantUML syntaxe:
+
+    @startuml
+
+    !include ../../lib/theme.iuml!0
+
+    [...]
+    @enduml
+
+Replace the number at the end of the directive depending on diagram type:
+
+0: Class diagram
+1: Sequence diagram
+2: Component diagram

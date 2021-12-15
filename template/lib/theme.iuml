@@ -1,0 +1,89 @@
+' sgt-hartman PlantUML's theme
+'
+' Use !include prepocesseur syntaxe on top 
+' of your puml file:
+'
+' For class diagrams:
+' !include ../../theme.iuml!0
+'
+' For sequence diagrams:
+' !include ../../theme.iuml!1
+'
+' For component diagrams:
+' !include ../../theme.iuml!2
+
+'Class diagram 
+
+@startuml
+skinparam defaultFontSize 12
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam defaultFontName Carlito Bold
+skinparam class {
+  BorderColor white
+  BackgroundColor #466bb4
+  ArrowColor #c12e4d
+  FontColor white
+  roundCorner 25
+  AttributeFontColor white
+}
+skinparam stereotypeCBackgroundColor white
+@enduml
+
+'Sequence diagram
+
+@startuml
+skinparam defaultFontSize 15
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam roundcorner 15
+skinparam sequence {
+  ArrowColor #c12e4d
+  ActorBorderColor #c12e4d
+  LifeLineBorderColor #466bb4
+  ParticipantBorderColor #466bb4
+  ParticipantBackgroundColor #466bb4
+  ParticipantFontColor white
+  ParticipantFontSize 20
+  ParticipantFontName Carlito Bold
+  ActorBorderColor #466bb4
+  ActorBackgroundColor #466bb4
+  ActorFontColor #466bb4
+  ActorFontName Carlito Bold
+  ActorFontSize 20
+}
+@enduml
+
+'Component diagram
+
+@startuml
+hide stereotype
+skinparam defaultFontSize 20
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam defaultFontName Carlito Bold
+skinparam rectangle {
+  BorderColor white
+  BackgroundColor #466bb4
+  FontColor white
+  roundCorner 25
+}
+skinparam rectangle {
+  BorderColor<<nested>> white
+  BackgroundColor<<nested>> #0075bc
+  FontColor<<nested>> white
+  roundCorner<<nested>> 25
+}
+skinparam component {
+  BorderColor white
+  BackgroundColor white
+  FontColor #466bb4
+  roundCorner 15
+}
+skinparam interface {
+  borderColor #c12e4d
+  backgroundColor #c12e4d
+}
+@enduml
+
+
