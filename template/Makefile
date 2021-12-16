@@ -51,7 +51,8 @@ dist: all
 # Deliveries building rules
 
 $(DOC_NAME): $(FIGURES) \
-	         $(DOC_SOURCE)
+					   $(PUMLPNGS) \
+	           $(DOC_SOURCE)
 	mkdir -p $(BUILDDIR)
 	# Generate document with Pandoc
 	cd $(BUILDDIR) && $(PANDOC) -f markdown \
