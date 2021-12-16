@@ -33,7 +33,6 @@ PUMLPNGS = $(PUMLSOURCES:.puml=.png)
 
 all: $(FIGURES) \
 		 $(PUMLPNGS) \
-		 $(SVGPNGS) \
      $(DOC_NAME) 
 
 clean:
